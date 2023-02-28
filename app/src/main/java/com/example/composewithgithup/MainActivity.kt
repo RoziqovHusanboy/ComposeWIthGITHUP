@@ -4,38 +4,38 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.composewithgithup.ui.theme.ComposeWIthGITHUPTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposeWIthGITHUPTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background) {
-                    Greeting("Android")
-                }
-            }
+            Headere()
+
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Headere() {
+        Scaffold(
+          topBar = { TopAppBar (
+            title = {  Text(text = "ComposeWith_git_hup", modifier = Modifier.fillMaxWidth(), fontSize = 20.sp, fontFamily = FontFamily.Serif, textAlign = TextAlign.Center)}
+            , backgroundColor = colorResource(id =R.color.ColorAppBar )
+
+          ) }
+        ) {
+
+        }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ComposeWIthGITHUPTheme {
-        Greeting("Android")
-    }
-}
+
